@@ -1,5 +1,8 @@
 @import "../../mixins.scss";
 
+.test{
+    color: orange;
+}
 .header {
     position: fixed;
     transform: translateY(0);
