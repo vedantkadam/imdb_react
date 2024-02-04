@@ -63,6 +63,18 @@
         }
         .right {
             color: white;
+
+            .providerimg {
+                display: flex;
+                max-height: 20px;
+                max-width: 15px;
+                margin-top: -60px;
+                img{
+                    max-height: 80px;
+                    max-width: 150px;
+                }
+            }
+
             .title {
                 font-size: 28px;
                 line-height: 40px;
@@ -153,6 +165,13 @@
                     }
                 }
             }
+
+            .ottbtn {
+                display: flex;
+                max-width: 15px;
+                max-height: 20px;
+            }
+        
             .row {
                 display: flex;
                 align-items: center;

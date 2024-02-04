@@ -9,7 +9,7 @@ import useFetch from "../../../hooks/useFetch";
 const TopRated = () => {
     const [endpoint, setEndpoint] = useState("movie");
 
-    const { data, loading } = useFetch(`/${endpoint}/top_rated`);
+    const { data, loading } = useFetch(`/discover/${endpoint}?include_adult=false&include_video=false&language=en&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&watch_region=IN&with_watch_providers=8%7C9%7C2`);
 
     const onTabChange = (tab) => {
         setEndpoint(tab === "Movies" ? "movie" : "tv");

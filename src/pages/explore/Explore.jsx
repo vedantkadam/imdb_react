@@ -38,7 +38,7 @@ const Explore = () => {
 
     const fetchInitialData = () => {
         setLoading(true);
-        fetchDataFromApi(`/discover/${mediaType}`, filters).then((res) => {
+        fetchDataFromApi(`/discover/${mediaType}?watch_region=IN&with_watch_providers=8%7C9%7C2`, filters).then((res) => {
             setData(res);
             setPageNum((prev) => prev + 1);
             setLoading(false);
@@ -47,7 +47,7 @@ const Explore = () => {
 
     const fetchNextPageData = () => {
         fetchDataFromApi(
-            `/discover/${mediaType}?page=${pageNum}`,
+            `/discover/${mediaType}?page=${pageNum}?watch_region=IN&with_watch_providers=8%7C9%7C2`,
             filters
         ).then((res) => {
             if (data?.results) {

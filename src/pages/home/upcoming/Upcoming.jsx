@@ -8,10 +8,10 @@ import useFetch from "../../../hooks/useFetch";
 
 
 
-const Popular = () => {
+const Upcoming = () => {
     const [endpoint, setEndpoint] = useState("movie");
 
-    const { data, loading } = useFetch(`/discover/${endpoint}?include_adult=false&include_video=false&language=en&page=1&region=IN&sort_by=popularity.desc&watch_region=IN&&with_watch_providers=8%7C9%7C2`);
+    const { data, loading } = useFetch(`/discover/${endpoint}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte=2024-02-01&release_date.lte=2024-12-01&&primary_release_year=2024&watch_region=IN&with_watch_providers=8%7C9%7C2`);
 
     const onTabChange = (tab) => {
         setEndpoint(tab === "Movies" ? "movie" : "tv");
@@ -20,7 +20,7 @@ const Popular = () => {
     return (
         <div className="carouselSection">
             <ContentWrapper>
-                <span className="carouselTitle">What's Popular</span>
+                <span className="carouselTitle">Upcoming</span>
                 <SwitchTabs
                     data={["Movies", "TV Shows"]}
                     onTabChange={onTabChange}
@@ -36,9 +36,8 @@ const Popular = () => {
         </div>
     );
 
-    // return(        console.log(data));
     
 
 };
 
-export default Popular;
+export default Upcoming;

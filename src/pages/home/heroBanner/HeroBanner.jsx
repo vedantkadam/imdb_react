@@ -13,7 +13,7 @@ const HeroBanner = () => {
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
-    const { data, loading } = useFetch("/movie/upcoming");
+    const { data, loading } = useFetch("/discover/movie?include_adult=false&include_video=false&language=en&page=1&region=IN&sort_by=popularity.desc&watch_region=IN&&with_watch_providers=8%7C9%7C2");
 
     useEffect(() => {
         const bg =

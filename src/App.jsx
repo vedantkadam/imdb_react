@@ -12,6 +12,7 @@ import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
+import WatchProviders from "./pages/watch_providers/WatchProviders";
 
 function App() {
     const dispatch = useDispatch();
@@ -31,7 +32,9 @@ function App() {
                 backdrop: res.images.secure_base_url + "original",
                 poster: res.images.secure_base_url + "original",
                 profile: res.images.secure_base_url + "original",
+                
             };
+
 
             dispatch(getApiConfiguration(url));
         });
@@ -64,6 +67,7 @@ function App() {
                 <Route path="/search/:query" element={<SearchResult />} />
                 <Route path="/explore/:mediaType" element={<Explore />} />
                 <Route path="*" element={<PageNotFound />} />
+                <Route path="/:mediaType/:id/watch/providers" element={<WatchProviders />} />
             </Routes>
             <Footer />
         </BrowserRouter>

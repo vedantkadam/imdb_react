@@ -13,8 +13,13 @@ import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
 import { PlayIcon } from "../Playbtn";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
+import WatchProviders from "../../watch_providers/WatchProviders.jsx";
+import netflix from "../../../assets/netflix.jpg";
 
 const DetailsBanner = ({ video, crew }) => {
+    //const { provider } = useFetch(`/${mediaType}/${id}/watch/providers`);
+    let imgUrl = netflix;
+
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
 
@@ -95,6 +100,9 @@ const DetailsBanner = ({ video, crew }) => {
                                                 <span className="text">
                                                     Watch Trailer
                                                 </span>
+                                            </div>
+                                            <div className="providerimg">
+                                                <Img src={imgUrl}></Img>
                                             </div>
                                         </div>
 
