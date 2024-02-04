@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
+// import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 
+// import { Dropdown } from 'primereact/dropdown';
+        
+         
 import "./style.scss";
 
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
@@ -23,23 +27,34 @@ const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
 
-    const { mediaType, id } = useParams();
-    const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
-    const { url } = useSelector((state) => state.home);
+  const { mediaType, id } = useParams();
+  const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
-    const _genres = data?.genres?.map((g) => g.id);
+  const { url } = useSelector((state) => state.home);
 
-    const director = crew?.filter((f) => f.job === "Director");
-    const writer = crew?.filter(
-        (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
-    );
+  const _genres = data?.genres?.map((g) => g.id);
 
-    const toHoursAndMinutes = (totalMinutes) => {
-        const hours = Math.floor(totalMinutes / 60);
-        const minutes = totalMinutes % 60;
-        return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
-    };
+  const director = crew?.filter((f) => f.job === "Director");
+  const writer = crew?.filter(
+    (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
+  );
+
+  const toHoursAndMinutes = (totalMinutes) => {
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
+  };
+  const YourComponent = () => {
+    const cities = [
+      { value: '1', name: 'New York' },
+      { value: '2', name: 'Los Angeles' },
+      { value: '3', name: 'Chicago' },
+      // Add more cities as needed
+    ];
+  
+    const [selectedCity, setSelectedCity] = useState(null);
+  }
 
     return (
         <div className="detailsBanner">
@@ -101,6 +116,18 @@ const DetailsBanner = ({ video, crew }) => {
                                                     Watch Trailer
                                                 </span>
                                             </div>
+                                            <form action="#">
+                    <label class="new"  for="lang" >Rate this Show</label>
+                    <select class="new1"  name="languages" id="lang">
+                        <option class="new2" value="javascript">2</option>
+                        <option class="new2" value="php">4</option>
+                        <option class="new2" value="java">6</option>
+                        <option class="new2" value="golang">8</option>
+                        <option class="new2" value="python">10</option>
+                        
+                    </select>
+                    {/* <input class="new3" type="submit" value="Go!" /> */}
+                </form>
                                             <div className="providerimg">
                                                 <Img src={imgUrl}></Img>
                                             </div>
@@ -219,26 +246,27 @@ const DetailsBanner = ({ video, crew }) => {
                                 />
                             </ContentWrapper>
                         </React.Fragment>
-                    )}
-                </>
-            ) : (
-                <div className="detailsBannerSkeleton">
-                    <ContentWrapper>
-                        <div className="left skeleton"></div>
-                        <div className="right">
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                        </div>
-                    </ContentWrapper>
-                </div>
-            )}
+        )}
+        </>
+      ) : (
+        <div className="detailsBannerSkeleton">
+          <ContentWrapper>
+            <div className="left skeleton"></div>
+            <div className="right">
+              <div className="row skeleton"></div>
+              <div className="row skeleton"></div>
+              <div className="row skeleton"></div>
+              <div className="row skeleton"></div>
+              <div className="row skeleton"></div>
+              <div className="row skeleton"></div>
+              <div className="row skeleton"></div>
+            </div>
+          </ContentWrapper>
         </div>
-    );
+      )}
+    </div>
+  );
 };
+
 
 export default DetailsBanner;
