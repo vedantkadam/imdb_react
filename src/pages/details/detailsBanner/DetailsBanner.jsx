@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 // import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 
@@ -30,6 +31,10 @@ const DetailsBanner = ({ video, crew }) => {
 
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
+  const media = mediaType;
+  const id1 = id;
+
+  const { data1,loading1 } = useFetch(`/${mediaType}/${id}/watch/providers`);
 
   const { url } = useSelector((state) => state.home);
 
@@ -52,8 +57,9 @@ const DetailsBanner = ({ video, crew }) => {
       { value: '3', name: 'Chicago' },
       // Add more cities as needed
     ];
+
+    const { url } = useSelector((state) => state.home);
   
-    const [selectedCity, setSelectedCity] = useState(null);
   }
 
     return (
@@ -128,8 +134,16 @@ const DetailsBanner = ({ video, crew }) => {
                     </select>
                     {/* <input class="new3" type="submit" value="Go!" /> */}
                 </form>
-                                            <div className="providerimg">
-                                                <Img src={imgUrl}></Img>
+                                        <div className="playbtn"
+                                        onClick={() =>
+                                            window.location.replace(
+                                                `https://www.themoviedb.org/${media}/${id1}/watch`
+                                            )
+                                        }>
+                                                <PlayIcon />
+                                                <span className="text">
+                                                    Play
+                                                </span>
                                             </div>
                                         </div>
 
