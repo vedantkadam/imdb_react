@@ -89,6 +89,12 @@ const Header = () => {
                     >
                         TV Shows
                     </li>
+                    <li
+                        className="menuItem"
+                        onClick={() => window.location.href = "https://node-googlemeetclone-vedu.onrender.com/"}
+                    >
+                        Watch Along
+                    </li>
                     <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
                     </li>
