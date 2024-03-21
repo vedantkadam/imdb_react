@@ -24,7 +24,7 @@ const Recommendation = ({ mediaType, id }) => {
     <div>
       {displayCarousel && (
         <Carousel
-          title="Collaborative Based Recommendation"
+          title="Similar Users also watched..."
           data={data?.results}
           loading={loading}
           endpoint={mediaType}

@@ -20,7 +20,7 @@ const Upcoming = () => {
     return (
         <div className="carouselSection">
             <ContentWrapper>
-                <span className="carouselTitle">Upcoming</span>
+                <span className="carouselTitle">Upcoming Movies</span>
                 <SwitchTabs
                     data={["Movies", "TV Shows"]}
                     onTabChange={onTabChange}
