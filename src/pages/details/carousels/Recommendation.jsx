@@ -14,7 +14,7 @@ const Recommendation = ({ mediaType, id }) => {
     // Set a timeout to display the Carousel after 20 seconds
     const timeoutId = setTimeout(() => {
       setDisplayCarousel(true);
-    }, 10000); // 20 seconds in milliseconds
+    }, 15000); // 20 seconds in milliseconds
 
     // Cleanup the timeout when the component unmounts or when data changes
     return () => clearTimeout(timeoutId);
